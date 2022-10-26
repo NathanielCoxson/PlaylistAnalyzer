@@ -5,7 +5,9 @@ import Spotify from '../../utils/Spotify';
 
 function App() {
     const [id, setId] = useState();
-    const accessToken = Spotify.getAccessToken();
+    Spotify.getPlaylist('3HWoRESCLzn7fYwmIDk81n').then((response) => {
+        console.log(response);
+    });
     return (
         <div className="App">
             <h1>Spotify Playlist Analyzer</h1>
@@ -13,7 +15,6 @@ function App() {
                 onSubmit={setId}
             />
             <p>{id}</p>
-            <p>{accessToken}</p>
         </div>
     );
 }
