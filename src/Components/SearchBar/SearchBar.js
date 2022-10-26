@@ -10,7 +10,7 @@ export function SearchBar(props) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        props.onSubmit(() => id);
+        props.onSubmit(id);
     };
 
     return (

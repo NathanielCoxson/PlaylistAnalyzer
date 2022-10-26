@@ -36,10 +36,21 @@ const Spotify = {
             return response.json();
         })
         .then(jsonResponse => {
-            return jsonResponse.tracks.items.map((item) => ({
-                name: item.track.name,
-                artist: item.track.artists[0].name
-            }));
+            return jsonResponse.tracks.items.map((item) => item.track.artists[0].id);
+        });
+    },
+
+    async getGenres(ids) {
+        const idList = ids.join(',');
+        console.log(idList);
+        return fetch(`${baseUrl}artists?ids=${idList}`, {
+            headers: {
+                Authorization: `Bearer ${accessToken}`
+            }
+        })
+        .then(response => response.json())
+        .then(jsonResponse => {
+            return jsonResponse.artists.map((artist) => artist.genres);
         });
     }
 };
