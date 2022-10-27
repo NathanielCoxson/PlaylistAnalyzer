@@ -11,9 +11,9 @@ export function Playlist(props) {
     //Select playlist to be analyzed
     return (
         <div className='Playlist'>
-            <h3>Playlist Title</h3>
-            <p># of Songs</p>
-            <p>ID</p>
+            <h3>{props.name}</h3>
+            <p>{props.total === 1 ? '1 Song' : props.total + ' Songs'}</p>
+            <p>{props.id}</p>
         </div>
     );
 }

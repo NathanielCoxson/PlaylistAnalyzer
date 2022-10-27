@@ -33,12 +33,7 @@ function App() {
         });
     }, [artistIds]);
 
-    const onGetPlaylistsClick = async () => {
-        const userId = await Spotify.getUserId();
-        Spotify.getUsersPlaylists(userId).then(response => {
-            setPlaylists(response);
-        });
-    }
+
 
     return (
         <div className="App">
@@ -46,10 +41,7 @@ function App() {
             <SearchBar 
                 onSubmit={setPlaylistId}
             />
-            <PlaylistList 
-                onGetPlaylistsClick={onGetPlaylistsClick}
-                playlists={playlists}
-            />
+            <PlaylistList />
             <ul>{genres.map((entry, i) => {
                 return <li key={i} style={{textAlign: 'left'}}>{genreCounts[entry]} {entry}</li>
             })}</ul>
