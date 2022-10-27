@@ -123,8 +123,29 @@ const Spotify = {
             genres: genres,
             counts: counts
         };
-    }
+    },
+
+    async getUserId() {
+        const accessToken = this.getAccessToken();
+        return fetch(`${baseUrl}me`, {
+            headers: {
+                Authorization: `Bearer ${accessToken}`
+            }
+        })
+        .then(response => response.json())
+        .then(jsonResponse => jsonResponse.id);
+    },
     
+    async getUsersPlaylists(userId) {
+        const accessToken = this.getAccessToken();
+        return fetch(`${baseUrl}users/${userId}/playlists`, {
+            headers: {
+                Authorization: `Bearer ${accessToken}`
+            }
+        })
+        .then(response => response.json())
+        .then(jsonResponse => jsonResponse.items);
+    }
 };
 
 export default Spotify;

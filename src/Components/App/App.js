@@ -12,12 +12,15 @@ function App() {
     const [genres, setGenres] = useState([]);
     const [genreCounts, setGenreCounts] = useState({});
     const [playlistId, setPlaylistId] = useState('');
+    const [playlists, setPlaylists] = useState([]);
 
     useEffect(() => {
         onSubmit(playlistId)
     }, [playlistId]);
 
     const onSubmit = async (id) => {
+        
+        
         Spotify.getPlaylist(id).then(response => {
             setArtistIds(response);
         });
@@ -30,13 +33,23 @@ function App() {
         });
     }, [artistIds]);
 
+    const onGetPlaylistsClick = async () => {
+        const userId = await Spotify.getUserId();
+        Spotify.getUsersPlaylists(userId).then(response => {
+            setPlaylists(response);
+        });
+    }
+
     return (
         <div className="App">
             <h1>Spotify Playlist Analyzer</h1>
             <SearchBar 
                 onSubmit={setPlaylistId}
             />
-            <PlaylistList />
+            <PlaylistList 
+                onGetPlaylistsClick={onGetPlaylistsClick}
+                playlists={playlists}
+            />
             <ul>{genres.map((entry, i) => {
                 return <li key={i} style={{textAlign: 'left'}}>{genreCounts[entry]} {entry}</li>
             })}</ul>
