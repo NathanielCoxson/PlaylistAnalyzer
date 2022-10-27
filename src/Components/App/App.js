@@ -4,7 +4,7 @@ import {SearchBar} from '../SearchBar/SearchBar';
 import Spotify from '../../utils/Spotify';
 //37i9dQZF1DX03b46zi3S82 size 211
 //37i9dQZF1DXa1rZf8gLhyz size 165
-//79t3kATB8muVZxE1l9cQQE size 21
+//36ag7D1cqumg13l874ohdj size 21
 
 function App() {
     const [artistIds, setArtistIds] = useState([]);
@@ -35,8 +35,8 @@ function App() {
             <SearchBar 
                 onSubmit={setPlaylistId}
             />
-            <ul>{genres.map(entry => {
-                return <li style={{textAlign: 'left'}}>{genreCounts[entry]} {entry}</li>
+            <ul>{genres.map((entry, i) => {
+                return <li key={i} style={{textAlign: 'left'}}>{genreCounts[entry]} {entry}</li>
             })}</ul>
         </div>
     );

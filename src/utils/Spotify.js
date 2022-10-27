@@ -25,37 +25,6 @@ const Spotify = {
         }
     },
 
-    // async getPlaylist(uri) {
-    //     const accessToken = this.getAccessToken();
-    //     return fetch(`${baseUrl}playlists/${uri}/tracks?limit=100`, {
-    //         headers: {
-    //             Authorization: `Bearer ${accessToken}`
-    //         }
-    //     })
-    //     .then(response => response.json())
-    //     .then(jsonResponse => {
-    //         return {
-    //             batch: jsonResponse.items.map((item) => item.track.artists[0].id),
-    //             next: jsonResponse.next,
-    //             total: jsonResponse.total
-    //         };
-    //     });
-    // },
-
-    // async getPlaylistOffset(url) {
-    //     const accessToken = this.getAccessToken();
-    //     return fetch(url, {
-    //         headers: {
-    //             Authorization: `Bearer ${accessToken}`
-    //         }
-    //     })
-    //     .then(response => response.json())
-    //     .then(jsonResponse => {
-    //         let batch = jsonResponse.items.map((item) => item.track.artists[0].id);
-    //         let next = jsonResponse.next;
-    //         return {batch, next};
-    //     });
-    // },
     async getPlaylist(uri) {
         const accessToken = this.getAccessToken();
         let total = 0;
