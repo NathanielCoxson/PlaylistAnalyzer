@@ -1,8 +1,29 @@
 .Playlist {
     display: inline-flex;
-    justify-content: center;
+    justify-content: left;
     justify-items: center;
     align-items: center;
     width: 100%;
-    gap: 50px;
+}
+
+.imgFiller {
+    width: 100px;
+    height: 100px;
+}
+
+.title {
+    padding-left: 1rem;
+}
+
+.songCount {
+    padding-left: 2rem;
+}
+
+.ID {
+    padding-left: 2rem;
+}
+
+img {
+    width: 100px;
+    height: 100px;
 }

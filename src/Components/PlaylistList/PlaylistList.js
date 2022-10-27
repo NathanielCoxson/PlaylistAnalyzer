@@ -36,6 +36,7 @@ export function PlaylistList(props) {
                     name={playlist.name}
                     total={playlist.tracks.total}
                     id={playlist.id}
+                    img={playlist.images.length > 0 ? playlist.images[0].url : ''}
                     key={i}
                 />
             })}

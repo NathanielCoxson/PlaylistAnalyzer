@@ -11,9 +11,16 @@ export function Playlist(props) {
     //Select playlist to be analyzed
     return (
         <div className='Playlist'>
-            <h3>{props.name}</h3>
-            <p>{props.total === 1 ? '1 Song' : props.total + ' Songs'}</p>
-            <p>{props.id}</p>
+            {props.img ? <img src={props.img}/> : <div className='imgFiller'></div>}
+            <div className='title'>
+                <h3>{props.name}</h3>
+            </div>
+            <div className='songCount'>
+                <p>{props.total === 1 ? '1 Song' : props.total + ' Songs'}</p>
+            </div>
+            <div className='ID'>
+                <p>{props.id}</p>
+            </div>
         </div>
     );
 }
