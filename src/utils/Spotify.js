@@ -66,6 +66,7 @@ const Spotify = {
     },
 
     async getGenres(ids) {
+        const accessToken = this.getAccessToken();
         //Separate artist ids into chunks of 50 for each fetch
         let chunkSize = 50;
         let idChunks = [];
@@ -77,7 +78,11 @@ const Spotify = {
         let fetches = [];
         idChunks.forEach(chunk => {
             fetches.push(
-                fetch(`${baseUrl}artists?ids=${chunk.join(',')}`)
+                fetch(`${baseUrl}artists?ids=${chunk.join(',')}`, {
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`
+                    }
+                })
                 .then(response => response.json())
                 .then(jsonResponse => {
                     return jsonResponse.artists.map(artist => artist.genres);
