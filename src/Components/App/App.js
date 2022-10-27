@@ -2,36 +2,30 @@ import './App.css';
 import {React, useEffect, useState} from 'react';
 import {SearchBar} from '../SearchBar/SearchBar';
 import Spotify from '../../utils/Spotify';
+//37i9dQZF1DX03b46zi3S82 size 211
+//37i9dQZF1DXa1rZf8gLhyz size 165
+//79t3kATB8muVZxE1l9cQQE size 21
 
 function App() {
     const [artistIds, setArtistIds] = useState([]);
     const [genres, setGenres] = useState([]);
     const [genreCounts, setGenreCounts] = useState({});
+    const [playlistId, setPlaylistId] = useState('');
 
-    const onSubmit = (id) => {
-        Spotify.getPlaylist(id).then((response) => {
+    useEffect(() => {
+        onSubmit(playlistId)
+    }, [playlistId]);
+
+    const onSubmit = async (id) => {
+        Spotify.getPlaylist(id).then(response => {
             setArtistIds(response);
         });
     }
 
     useEffect(() => {
         Spotify.getGenres(artistIds).then(response => {
-            console.log(response.flat());
-
-            let counts = {};
-            response.flat().forEach(genre => {
-                if(genre in counts) {
-                    counts[genre]++;
-                }
-                else {
-                    counts[genre] = 1;
-                }
-            });
-            
-            setGenres(new Set(response.flat()));
-            setGenreCounts(counts);
-            console.log(genres);
-            console.log(counts);
+            setGenres(response.genres);
+            setGenreCounts(response.counts);
         });
     }, [artistIds]);
 
@@ -39,11 +33,11 @@ function App() {
         <div className="App">
             <h1>Spotify Playlist Analyzer</h1>
             <SearchBar 
-                onSubmit={onSubmit}
+                onSubmit={setPlaylistId}
             />
-            <p>{artistIds}</p>
-            <p>{genres}</p>
-            
+            <ul>{genres.map(entry => {
+                return <li style={{textAlign: 'left'}}>{genreCounts[entry]} {entry}</li>
+            })}</ul>
         </div>
     );
 }
