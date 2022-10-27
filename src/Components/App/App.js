@@ -2,6 +2,7 @@ import './App.css';
 import {React, useEffect, useState} from 'react';
 import {SearchBar} from '../SearchBar/SearchBar';
 import Spotify from '../../utils/Spotify';
+import {PlaylistList} from '../PlaylistList/PlaylistList';
 //37i9dQZF1DX03b46zi3S82 size 211
 //37i9dQZF1DXa1rZf8gLhyz size 165
 //36ag7D1cqumg13l874ohdj size 21
@@ -35,6 +36,7 @@ function App() {
             <SearchBar 
                 onSubmit={setPlaylistId}
             />
+            <PlaylistList />
             <ul>{genres.map((entry, i) => {
                 return <li key={i} style={{textAlign: 'left'}}>{genreCounts[entry]} {entry}</li>
             })}</ul>
