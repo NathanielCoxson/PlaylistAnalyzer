@@ -96,37 +96,6 @@ const Spotify = {
         return batches.flat();
     },
 
-    async getPlaylistOffset(url) {
-        const accessToken = this.getAccessToken();
-        return fetch(url, {
-            headers: {
-                Authorization: `Bearer ${accessToken}`
-            }
-        })
-        .then(response => response.json())
-        .then(jsonResponse => {
-            let batch = jsonResponse.items.map((item) => item.track.artists[0].id);
-            let next = jsonResponse.next;
-            return {batch, next};
-        });
-    },
-
-    // async getGenres(ids) {
-        
-
-    //     const idList = ids.join(',');
-    //     return fetch(`${baseUrl}artists?ids=${idList}`, {
-    //         headers: {
-    //             Authorization: `Bearer ${accessToken}`
-    //         }
-    //     })
-    //     .then(response => response.json())
-    //     .then(jsonResponse => {
-    //         return jsonResponse.artists.map((artist) => artist.genres);
-    //     });
-    // }
-
-
     async getGenres(ids) {
         //Separate artist ids into chunks of 50 for each fetch
         let chunkSize = 50;
