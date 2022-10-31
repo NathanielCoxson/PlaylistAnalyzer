@@ -12,7 +12,6 @@ function App() {
     const [genres, setGenres] = useState([]);
     const [genreCounts, setGenreCounts] = useState({});
     const [playlistId, setPlaylistId] = useState('');
-    const [playlists, setPlaylists] = useState([]);
 
     useEffect(() => {
         onSubmit(playlistId)

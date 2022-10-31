@@ -11,7 +11,7 @@ export function Playlist(props) {
     //Select playlist to be analyzed
     return (
         <div className='Playlist'>
-            {props.img ? <img src={props.img}/> : <div className='imgFiller'></div>}
+            {props.img ? <img src={props.img} alt="playlist cover image"/> : <div className='imgFiller'></div>}
             <div className='title'>
                 <h3>{props.name}</h3>
             </div>
