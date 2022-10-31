@@ -1,6 +1,6 @@
 let accessToken = '';
 const clientId = '3a32785f7f184abfaa9f921c96f3c2dc';
-const redirectUri = 'http://localhost:3000/';
+const redirectUri = 'https://musicanalyzer.netlify.app/';
 const baseUrl = 'https://api.spotify.com/v1/';
 
 const Spotify = {
