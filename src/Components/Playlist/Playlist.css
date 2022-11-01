@@ -4,6 +4,7 @@
     justify-items: center;
     align-items: center;
     margin: 5px;
+    padding: 5px;
     background-color: aliceblue;
     border-radius: 10px;
 }
@@ -29,7 +30,7 @@ img {
 .button {
     display: inline-flex;
     margin-left: auto;
-    padding-right: 2rem;
+    padding-right: 0.5rem;
     padding-left: 2rem;
     align-items: center;
     justify-content: center;
