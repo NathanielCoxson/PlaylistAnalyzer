@@ -32,13 +32,15 @@ export function PlaylistList(props) {
             <button onClick={handleGetPlaylistsClick}>Get My Playlists</button>
             <button onClick={handleDropdownClick}>Dropdown</button>
             {showPlaylists && playlists?.map((playlist, i) => {
-                return <Playlist 
+                if(playlist.tracks.total > 0) {
+                    return <Playlist 
                     name={playlist.name}
                     total={playlist.tracks.total}
                     id={playlist.id}
                     img={playlist.images.length > 0 ? playlist.images[0].url : ''}
                     key={i}
-                />
+                    />
+                }
             })}
         </div>
     );
