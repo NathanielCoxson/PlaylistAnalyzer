@@ -3,7 +3,9 @@
     justify-content: left;
     justify-items: center;
     align-items: center;
-    width: 100%;
+    margin: 5px;
+    background-color: aliceblue;
+    border-radius: 10px;
 }
 
 .imgFiller {
@@ -21,9 +23,24 @@
 
 .ID {
     padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 img {
     width: 100px;
     height: 100px;
+}
+
+.PlaylistList:last-child {
+    margin-left: auto;
+}
+
+.button {
+    margin-left: auto;
+    padding-right: 2rem;
+}
+
+.button button {
+    width: 35px;
+    height: 35px;
 }

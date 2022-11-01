@@ -1,6 +1,11 @@
 .PlaylistList {
-    display: flex;
-    justify-content: left;
-    flex-wrap: wrap;
-    width: 100%;
+    display: grid;
+    box-sizing: border-box;
 }
+
+.container {
+    display: inline-block;
+    text-align: left;
+    padding-left: 10%;
+}
+

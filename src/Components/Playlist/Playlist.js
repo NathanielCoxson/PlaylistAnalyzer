@@ -21,6 +21,9 @@ export function Playlist(props) {
             <div className='ID'>
                 <p>{props.id}</p>
             </div>
+            <div className='button'>
+                <button>+</button>
+            </div>
         </div>
     );
 }

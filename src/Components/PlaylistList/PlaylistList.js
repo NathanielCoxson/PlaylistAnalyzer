@@ -30,7 +30,7 @@ export function PlaylistList(props) {
     }
 
     return (
-        <div style={{display: 'inline-block', textAlign: 'left', width: '50%'}}>
+        <div className="container">
             <button onClick={handleGetPlaylistsClick}>Get My Playlists</button>
             <button onClick={handleDropdownClick}>Dropdown</button>
             <div className='PlaylistList'>
