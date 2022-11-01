@@ -44,6 +44,7 @@ export function PlaylistList(props) {
                         key={i}
                         />
                     }
+                    return <div></div>;
                 })}
             </div>
         </div>
