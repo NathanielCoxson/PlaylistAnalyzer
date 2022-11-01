@@ -1,6 +1,8 @@
+import './PlaylistList.css';
 import React, { useState } from "react";
 import {Playlist} from '../Playlist/Playlist';
 import Spotify from "../../utils/Spotify";
+
 
 export function PlaylistList(props) {
     const [playlists, setPlaylists] = useState();
@@ -28,20 +30,23 @@ export function PlaylistList(props) {
     }
 
     return (
-        <div className='PlaylistList'>
+        <div style={{display: 'inline-block', textAlign: 'left', width: '50%'}}>
             <button onClick={handleGetPlaylistsClick}>Get My Playlists</button>
             <button onClick={handleDropdownClick}>Dropdown</button>
-            {showPlaylists && playlists?.map((playlist, i) => {
-                if(playlist.tracks.total > 0) {
-                    return <Playlist 
-                    name={playlist.name}
-                    total={playlist.tracks.total}
-                    id={playlist.id}
-                    img={playlist.images.length > 0 ? playlist.images[0].url : ''}
-                    key={i}
-                    />
-                }
-            })}
+            <div className='PlaylistList'>
+                {showPlaylists && playlists?.map((playlist, i) => {
+                    if(playlist.tracks.total > 0) {
+                        return <Playlist 
+                        name={playlist.name}
+                        total={playlist.tracks.total}
+                        id={playlist.id}
+                        img={playlist.images.length > 0 ? playlist.images[0].url : ''}
+                        key={i}
+                        />
+                    }
+                })}
+            </div>
         </div>
+        
     );
 }
