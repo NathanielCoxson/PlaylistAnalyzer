@@ -2,13 +2,13 @@ import React from "react";
 import './Playlist.css';
 
 export function Playlist(props) {
+    const {setPlaylistId} = props;
 
-    //Information to Display:
-    //Title
-    //Number of songs
+    const handleClick = (event) => {
+        event.preventDefault();
+        setPlaylistId(() => props.id);
+    }
 
-    //What actions can be taken?:
-    //Select playlist to be analyzed
     return (
         <div className='Playlist'>
             {props.img ? <img src={props.img} alt="playlist cover"/> : <div className='imgFiller'></div>}
@@ -22,7 +22,9 @@ export function Playlist(props) {
                 <p>{props.id}</p>
             </div>
             <div className='button'>
-                <button>+</button>
+                <button
+                    onClick={handleClick}
+                >+</button>
             </div>
         </div>
     );

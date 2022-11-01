@@ -15,7 +15,7 @@ function App() {
     const [playlistId, setPlaylistId] = useState('');
 
     useEffect(() => {
-        onSubmit(playlistId)
+        onSubmit(playlistId);
     }, [playlistId]);
 
     const onSubmit = async (id) => {
@@ -42,7 +42,9 @@ function App() {
                 onSubmit={setPlaylistId}
             />
             <div className='mainContent'>
-                <PlaylistList />
+                <PlaylistList 
+                    setPlaylistId={setPlaylistId}
+                />
                 <GenreList 
                     genres={genres}
                     genreCounts={genreCounts}

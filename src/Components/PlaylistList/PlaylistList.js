@@ -7,6 +7,7 @@ import Spotify from "../../utils/Spotify";
 export function PlaylistList(props) {
     const [playlists, setPlaylists] = useState();
     const [showPlaylists, setShowPlaylists] = useState(true);
+    const {setPlaylistId} = props;
 
     const handleGetPlaylistsClick = (event) => {
         onGetPlaylistsClick();
@@ -42,6 +43,7 @@ export function PlaylistList(props) {
                         id={playlist.id}
                         img={playlist.images.length > 0 ? playlist.images[0].url : ''}
                         key={i}
+                        setPlaylistId={setPlaylistId}
                         />
                     }
                     return <div></div>;
