@@ -17,15 +17,6 @@
     padding-left: 1rem;
 }
 
-.songCount {
-    padding-left: 2rem;
-}
-
-.ID {
-    padding-left: 2rem;
-    padding-right: 2rem;
-}
-
 img {
     width: 100px;
     height: 100px;
@@ -36,8 +27,13 @@ img {
 }
 
 .button {
+    display: inline-flex;
     margin-left: auto;
     padding-right: 2rem;
+    padding-left: 2rem;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
 }
 
 .button button {

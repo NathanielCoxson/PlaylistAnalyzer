@@ -15,13 +15,8 @@ export function Playlist(props) {
             <div className='title'>
                 <h3>{props.name}</h3>
             </div>
-            <div className='songCount'>
-                <p>{props.total === 1 ? '1 Song' : props.total + ' Songs'}</p>
-            </div>
-            <div className='ID'>
-                <p>{props.id}</p>
-            </div>
             <div className='button'>
+                <p>{props.total === 1 ? '1 Song' : props.total + ' Songs'}</p>
                 <button
                     onClick={handleClick}
                 >+</button>
