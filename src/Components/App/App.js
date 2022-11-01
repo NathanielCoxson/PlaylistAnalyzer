@@ -15,10 +15,10 @@ function App() {
     const [playlistId, setPlaylistId] = useState('');
 
     useEffect(() => {
-        onSubmit(playlistId);
+        onIdChange(playlistId);
     }, [playlistId]);
 
-    const onSubmit = async (id) => {
+    const onIdChange = async (id) => {
         
         
         Spotify.getPlaylist(id).then(response => {
@@ -28,6 +28,15 @@ function App() {
 
     useEffect(() => {
         Spotify.getGenres(artistIds).then(response => {
+            response.genres.sort((a, b) => {
+                if(response.counts[a] > response.counts[b]) {
+                    return -1;
+                }
+                if(response.counts[b] > response.counts[a]) {
+                    return 1;
+                }
+                return 0;
+            });
             setGenres(response.genres);
             setGenreCounts(response.counts);
         });
