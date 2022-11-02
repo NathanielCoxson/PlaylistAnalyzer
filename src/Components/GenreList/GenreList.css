@@ -1,0 +1,13 @@
+.GenreList li {
+    text-align: left;
+}
+
+.GenreList {
+    width: 50%;
+}
+
+.bar {
+    min-height: 5px;
+    background-color: black;
+    margin-bottom: 5px;
+}
